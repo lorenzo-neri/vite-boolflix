@@ -2,26 +2,29 @@ import { reactive } from 'vue'
 import axios from 'axios';
 
 export const store = reactive({
-    base_url: 'https://api.themoviedb.org/3/search/movie?api_key=852e68c71e621d65c4ca1fa0807cf96e&query=back+to+the+future',
+    base_url: 'https://api.themoviedb.org/3/search/movie',
+    api_key: '852e68c71e621d65c4ca1fa0807cf96e',
+    movies: [],
+    searchQuery: '',
 
-    fetchData() {
+    fetchData(url) {
 
         //console.log(this, this.base_url);
         axios
-            .get(this.base_url, {
+            .get(url, {
                 params: {
 
-                    // archetype: this.archetypeSelected,
+                    api_key: this.api_key,
 
-                    // offset: this.offset,
+                    query: this.searchQuery,
 
-                    // num: this.limit,
                 }
+
             }).then(response => {
                 console.log(response);
 
-                this.movie = response.data.results
-                console.log(this.movie);
+                this.movies = response.data.results
+                console.log(this.movies);
             })
 
             .catch(error => {
