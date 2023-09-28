@@ -58,10 +58,40 @@ export default {
           <div class="card-body">
             <h5 class="card-title">{{ movie.title }}</h5>
             <p class="card-text">Titolo Originale: {{ movie.original_title }}</p>
+
+            <!-- LANGUAGE -->
             <p class="card-text">
               <span v-if="movie.original_language == 'en'">
-                <img :src="'https://icons8.it/icon/t3NE3BsOAQwq/great-britain'" :alt="movie.original_language">
+                Lingua:
+                <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/united_kingdom_flags_flag_17079.png'"
+                  :alt="movie.original_language">
               </span>
+              <span v-else-if="movie.original_language == 'es'">
+                Lingua:
+                <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/spain_flags_flag_17068.png'"
+                  :alt="movie.original_language">
+              </span>
+              <span v-else-if="movie.original_language == 'it'">
+                Lingua:
+                <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/italy_flags_flag_17018.png'"
+                  :alt="movie.original_language">
+              </span>
+              <span v-else-if="movie.original_language == 'fr'">
+                Lingua:
+                <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/france_flags_flag_16999.png'"
+                  :alt="movie.original_language">
+              </span>
+              <span v-else-if="movie.original_language == 'nl'">
+                Lingua:
+                <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/netherlands_flags_flag_17041.png'"
+                  :alt="movie.original_language">
+              </span>
+              <span v-else-if="movie.original_language == 'de'">
+                Lingua:
+                <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/germany_flags_flag_17001.png'"
+                  :alt="movie.original_language">
+              </span>
+
               <span v-else> Lingua: {{ movie.original_language }}</span>
             </p>
 
@@ -80,8 +110,4 @@ export default {
   <!-- /.container -->
 </template>
 
-<style lang="scss" scoped>
-img {
-  width: 100%;
-}
-</style>
+<style lang="scss" scoped></style>
