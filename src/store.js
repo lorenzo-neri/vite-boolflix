@@ -2,14 +2,16 @@ import { reactive } from 'vue'
 import axios from 'axios';
 
 export const store = reactive({
-    base_url: 'https://api.themoviedb.org/3/search/movie',
+    url_movies: 'https://api.themoviedb.org/3/search/movie',
+    url_tvs: 'https://api.themoviedb.org/3/search/tv',
     api_key: '852e68c71e621d65c4ca1fa0807cf96e',
     movies: [],
-    searchQuery: '',
+    tvs: [],
+    searchQuery: [],
 
     fetchData(url) {
 
-        //console.log(this, this.base_url);
+        //console.log(this, this.url_movies);
         axios
             .get(url, {
                 params: {
@@ -25,6 +27,9 @@ export const store = reactive({
 
                 this.movies = response.data.results
                 console.log(this.movies);
+
+                this.searchQuery.push(...this.movies);
+                console.log('FILM' + this.searchQuery);
             })
 
             .catch(error => {

@@ -16,12 +16,12 @@ export default {
 
   methods: {
     searchMovies() {
-      store.fetchData(this.store.base_url);
+      store.fetchData(this.store.url_movies);
     },
   },
 
   created() {
-    store.fetchData(this.store.base_url);
+    store.fetchData(this.store.url_movies);
 
   },
 
