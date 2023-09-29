@@ -37,28 +37,39 @@ export default {
 </script>
 
 <template>
-  <div class="container p-3">
+  <header class="bg-black">
 
-    <h1 class="text-danger text-center">BOOLFIX</h1>
+    <div class="container p-3">
+      <div class="row p-2">
 
-    <div class="row p-2">
-      <div class="col">
+        <div class="col d-flex justify-content-start align-items-center">
 
-        <div class="input-group mb-3">
-          <input @keyup.enter="searchMovies" name="searchBar" id="searchBar" v-model="this.store.userSearch" type="search"
-            class="form-control border-0" placeholder="Cerca film per nome" />
-          <button @click="searchMovies" class="btn btn-danger">
-            Cerca
-          </button>
+          <h1 class="text-danger text-center m-0">BOOLFIX</h1>
+
         </div>
-        <!-- /.input-group -->
+        <!-- /.col -->
+
+        <div class="col d-flex justify-content-start align-items-center">
+
+          <div class="input-group">
+            <input @keyup.enter="searchMovies" name="searchBar" id="searchBar" v-model="this.store.userSearch"
+              type="search" class="form-control border-0" placeholder="Cerca un film o una serie TV" />
+            <button @click="searchMovies" class="btn btn-danger">
+              Cerca
+            </button>
+          </div>
+          <!-- /.input-group -->
+
+        </div>
+        <!-- /.col -->
 
       </div>
-      <!-- /.col -->
+      <!-- /.row -->
     </div>
-    <!-- /.row -->
+  </header>
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6">
+  <div class="container p-3">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
 
       <div class="col p-3" v-for="(result, index) in  store.results " :key="index">
 
@@ -72,7 +83,11 @@ export default {
             <h5 class="card-title">
               {{ result.title || result.name }}
             </h5>
-            <p class="card-text">Titolo Originale: {{ result.original_title || result.original_name }}</p>
+            <p class="card-text">
+              <span v-if="result.original_title != result.title || result.original_name != result.name">
+                Titolo Originale: {{ result.original_title || result.original_name }}
+              </span>
+            </p>
 
             <!-- LANGUAGE -->
             <p class="card-text">
