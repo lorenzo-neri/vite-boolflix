@@ -16,18 +16,21 @@ export default {
 
   methods: {
     searchMovies() {
+      store.results = [];
       store.fetchMovies(this.store.userSearch);
-      store.fetchTvs(this.store.userSearch)
+      store.fetchTvs(this.store.userSearch);
+      store.userSearch = ''
     },
-    searchTvs() {
-
+    voteOneToFive(vote) {
+      const roundedVote = Math.ceil(vote);
+      const voteOnetoFive = roundedVote / 2;
+      const roundedVoteOneToFive = Math.ceil(voteOnetoFive)
+      return roundedVoteOneToFive
     }
   },
 
-  /*   created() {
-      store.fetchMovies(this.store.url_movies);
-  
-    }, */
+  created() {
+  },
 
 }
 </script>
@@ -101,7 +104,7 @@ export default {
               <span v-else> Lingua: {{ result.original_language }}</span>
             </p>
 
-            <p class="card-text">Voto: {{ result.vote_average }}</p>
+            <p class="card-text">Voto: {{ voteOneToFive(result.vote_average) }}</p>
           </div>
         </div>
         <!-- /.card -->

@@ -17,7 +17,6 @@ export const store = reactive({
 
     fetchMovies(query) {
 
-        //console.log(this, this.url_movies);
         axios
             .get(this.url_movies, {
                 params: {
@@ -36,8 +35,6 @@ export const store = reactive({
 
                 this.results.push(...response.data.results)
 
-                /* this.userSearch.push(...this.movies);
-                console.log('FILM' + this.userSearch); */
             })
 
             .catch(error => {
