@@ -16,3 +16,29 @@ img {
     width: 20px;
   }
 }
+
+#card_container {
+
+  position: relative;
+
+  #card_poster {
+
+    img {
+
+      &:hover {
+        display: none;
+      }
+    }
+  }
+
+  #card_info {
+
+    position: absolute;
+    top: 0;
+
+    &:hover {
+      display: block;
+    }
+  }
+
+}
