@@ -19,6 +19,9 @@ export default {
       store.fetchMovies(this.store.userSearch);
       store.fetchTvs(this.store.userSearch)
     },
+    searchTvs() {
+
+    }
   },
 
   /*   created() {
@@ -53,50 +56,47 @@ export default {
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6">
 
-      <div class="col p-3" v-for="(movie, index) in  store.movies " :key="index">
+      <div class="col p-3" v-for="(result, index) in  store.results " :key="index">
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">{{ movie.title }}</h5>
-            <p class="card-text">Titolo Originale: {{ movie.original_title }}</p>
+            <h5 class="card-title">
+              {{ result.title || result.name }}
+            </h5>
+            <p class="card-text">Titolo Originale: {{ result.original_title || result.original_name }}</p>
 
             <!-- LANGUAGE -->
             <p class="card-text">
-              <span v-if="movie.original_language == 'en'">
+              <span v-if="result.original_language == 'en'">
                 Lingua:
                 <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/united_kingdom_flags_flag_17079.png'"
-                  :alt="movie.original_language">
+                  :alt="result.original_language">
               </span>
-              <span v-else-if="movie.original_language == 'es'">
+              <span v-else-if="result.original_language == 'es'">
                 Lingua:
                 <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/spain_flags_flag_17068.png'"
-                  :alt="movie.original_language">
+                  :alt="result.original_language">
               </span>
-              <span v-else-if="movie.original_language == 'it'">
+              <span v-else-if="result.original_language == 'it'">
                 Lingua:
                 <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/italy_flags_flag_17018.png'"
-                  :alt="movie.original_language">
+                  :alt="result.original_language">
               </span>
-              <span v-else-if="movie.original_language == 'fr'">
+              <span v-else-if="result.original_language == 'fr'">
                 Lingua:
                 <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/france_flags_flag_16999.png'"
-                  :alt="movie.original_language">
+                  :alt="result.original_language">
               </span>
-              <span v-else-if="movie.original_language == 'nl'">
-                Lingua:
-                <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/netherlands_flags_flag_17041.png'"
-                  :alt="movie.original_language">
-              </span>
-              <span v-else-if="movie.original_language == 'de'">
+              <span v-else-if="result.original_language == 'de'">
                 Lingua:
                 <img :src="'https://cdn.icon-icons.com/icons2/97/PNG/256/germany_flags_flag_17001.png'"
-                  :alt="movie.original_language">
+                  :alt="result.original_language">
               </span>
 
-              <span v-else> Lingua: {{ movie.original_language }}</span>
+              <span v-else> Lingua: {{ result.original_language }}</span>
             </p>
 
-            <p class="card-text">Voto: {{ movie.vote_average }}</p>
+            <p class="card-text">Voto: {{ result.vote_average }}</p>
           </div>
         </div>
         <!-- /.card -->

@@ -8,6 +8,7 @@ export const store = reactive({
     movies: [],
     tvs: [],
     userSearch: '',
+    results: [],
 
     fetchMovies(query) {
 
@@ -27,6 +28,8 @@ export const store = reactive({
 
                 this.movies = response.data.results
                 console.log(this.movies);
+
+                this.results.push(...response.data.results)
 
                 /* this.userSearch.push(...this.movies);
                 console.log('FILM' + this.userSearch); */
@@ -55,6 +58,8 @@ export const store = reactive({
 
                 this.tvs = response.data.results
                 console.log(this.tvs);
+
+                this.results.push(...response.data.results)
 
             })
 
