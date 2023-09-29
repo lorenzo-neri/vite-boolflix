@@ -59,6 +59,11 @@ export default {
       <div class="col p-3" v-for="(result, index) in  store.results " :key="index">
 
         <div class="card">
+
+          <img
+            :src="result.poster_path ? (store.url_poster + store.size_poster + result.poster_path) : 'https://imgs.search.brave.com/QXgNOKYWDmC_MpGFNuS03j-USyTt5GCVoehACdyZHUM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9iZWVi/b20uY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIyLzAyL25l/dGZsaXgtbm90LXdv/cmtpbmcuanBnP3c9/NzAwJmg9NDg3JmNy/b3A9MSZxdWFsaXR5/PTc1'"
+            :alt="result.title || result.name">
+
           <div class="card-body">
             <h5 class="card-title">
               {{ result.title || result.name }}
