@@ -7,18 +7,18 @@ export const store = reactive({
     api_key: '852e68c71e621d65c4ca1fa0807cf96e',
     movies: [],
     tvs: [],
-    searchQuery: [],
+    userSearch: '',
 
-    fetchData(url) {
+    fetchMovies(query) {
 
         //console.log(this, this.url_movies);
         axios
-            .get(url, {
+            .get(this.url_movies, {
                 params: {
 
                     api_key: this.api_key,
 
-                    query: this.searchQuery,
+                    query: query,
 
                 }
 
@@ -28,8 +28,34 @@ export const store = reactive({
                 this.movies = response.data.results
                 console.log(this.movies);
 
-                this.searchQuery.push(...this.movies);
-                console.log('FILM' + this.searchQuery);
+                /* this.userSearch.push(...this.movies);
+                console.log('FILM' + this.userSearch); */
+            })
+
+            .catch(error => {
+                console.log('Error:');
+                console.error(error);
+            })
+    },
+
+    fetchTvs(query) {
+
+        axios
+            .get(this.url_tvs, {
+                params: {
+
+                    api_key: this.api_key,
+
+                    query: query,
+
+                }
+
+            }).then(response => {
+                console.log(response);
+
+                this.tvs = response.data.results
+                console.log(this.tvs);
+
             })
 
             .catch(error => {

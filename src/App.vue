@@ -16,14 +16,15 @@ export default {
 
   methods: {
     searchMovies() {
-      store.fetchData(this.store.url_movies);
+      store.fetchMovies(this.store.userSearch);
+      store.fetchTvs(this.store.userSearch)
     },
   },
 
-  created() {
-    store.fetchData(this.store.url_movies);
-
-  },
+  /*   created() {
+      store.fetchMovies(this.store.url_movies);
+  
+    }, */
 
 }
 </script>
@@ -37,8 +38,8 @@ export default {
       <div class="col">
 
         <div class="input-group mb-3">
-          <input @keyup.enter="searchMovies" name="searchBar" id="searchBar" v-model="this.store.searchQuery"
-            type="search" class="form-control border-0" placeholder="Cerca film per nome" />
+          <input @keyup.enter="searchMovies" name="searchBar" id="searchBar" v-model="this.store.userSearch" type="search"
+            class="form-control border-0" placeholder="Cerca film per nome" />
           <button @click="searchMovies" class="btn btn-danger">
             Cerca
           </button>
