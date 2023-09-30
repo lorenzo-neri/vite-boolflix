@@ -1,5 +1,5 @@
 <script>
-import { store } from './store.js';
+import { store } from '../store.js';
 
 export default {
 
@@ -22,12 +22,6 @@ export default {
             store.userSearch = ''
         },
 
-        voteOneToFive(vote) {
-            const roundedVote = Math.ceil(vote);
-            const voteOnetoFive = roundedVote / 2;
-            const roundedVoteOneToFive = Math.ceil(voteOnetoFive);
-            return Number(roundedVoteOneToFive)
-        }
     },
 
     created() {
@@ -36,6 +30,37 @@ export default {
 }
 </script>
 
-<template></template>
+<template>
+    <header class="bg-black">
+
+        <div class="container p-3">
+            <div class="row p-2">
+
+                <div class="col d-flex justify-content-start align-items-center">
+
+                    <h1 class="text-danger text-center m-0">BOOLFIX</h1>
+
+                </div>
+                <!-- /.col -->
+
+                <div class="col d-flex justify-content-start align-items-center">
+
+                    <div class="input-group">
+                        <input @keyup.enter="searchMovies" name="searchBar" id="searchBar" v-model="this.store.userSearch"
+                            type="search" class="form-control border-0" placeholder="Cerca un film o una serie TV" />
+                        <button @click="searchMovies" class="btn btn-danger">
+                            Cerca
+                        </button>
+                    </div>
+                    <!-- /.input-group -->
+
+                </div>
+                <!-- /.col -->
+
+            </div>
+            <!-- /.row -->
+        </div>
+    </header>
+</template>
 
 <style lang="scss" scoped></style>
