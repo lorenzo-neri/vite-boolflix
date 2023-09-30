@@ -35,7 +35,12 @@ img {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.453);
+
+    /* TODO#2 */
     transition: .4s;
+    /* TODO#2 */
+
+    overflow: auto;
   }
 
   &:hover #card_info {
