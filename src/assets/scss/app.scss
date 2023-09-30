@@ -21,15 +21,25 @@ img {
 
   position: relative;
 
+  .card {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(32, 32, 32);
+    border: none;
+  }
+
   #card_info {
     display: none;
     position: absolute;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.294);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.453);
+  }
 
-    &:hover {
-      display: block;
-    }
+  &:hover #card_info {
+    display: block;
+
   }
 
 }
