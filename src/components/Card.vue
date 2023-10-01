@@ -145,4 +145,6 @@ export default {
     <!-- /#card_container -->
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@use '../assets/scss/partials/Card.scss' as *;
+</style>
