@@ -19,7 +19,9 @@ export default {
             store.results = [];
             store.fetchMovies(this.store.userSearch);
             store.fetchTvs(this.store.userSearch);
-            store.userSearch = ''
+            store.userSearch = '';
+            store.fetchMovies = false
+            store.fetchTvs = false
         },
 
     },

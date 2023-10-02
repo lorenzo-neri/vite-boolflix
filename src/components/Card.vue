@@ -36,12 +36,6 @@ export default {
 <template>
     <div id="card_container">
 
-        <!-- TODO#1 -->
-        <!-- <div v-if="store.results.length > 0"> -->
-        <!-- TODO#1 -->
-
-
-
         <div class="card">
             <div id="card_poster">
 
@@ -125,21 +119,19 @@ export default {
                         <strong>Overview:</strong> {{ rOverview }}
                     </p>
 
+                    <!-- ACTORS -->
+                    <p class="card-text">
+                        <strong>Actors:</strong>
+                        <span>
+
+                        </span>
+                    </p>
+
                 </div>
             </div>
         </div>
         <!-- /.card -->
 
-
-        <!-- </div> -->
-        <!-- v-if="store.results.length > 0 -->
-
-
-        <!-- TODO#1 -->
-        <!-- <div v-else class="text-white bg-danger">
-            Non ci sono film disponibili
-        </div> -->
-        <!-- TODO#1 -->
 
     </div>
     <!-- /#card_container -->
