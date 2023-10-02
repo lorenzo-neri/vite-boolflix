@@ -16,10 +16,6 @@ export default {
     },
 
     methods: {
-
-        randomContent(fun1, fun2) {
-
-        }
     },
 
     created() {
@@ -31,13 +27,6 @@ export default {
 <template>
     <!-- MAIN -->
     <div class="container p-3">
-
-        <!--         <div class="row row-cols-6">
-
-            <div class="col p-3" v-for="">
-
-            </div>
-        </div> -->
 
 
         <div class="row row-cols-2 row-cols-md-3">

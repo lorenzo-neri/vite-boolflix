@@ -25,6 +25,9 @@ export default {
     },
 
     created() {
+        //ad app caricata mostrami i risultati richiesti per non lasciare pagina vuota
+        this.store.userSearch = 'Back to the Future';
+        this.searchMovies();
     },
 
 }
