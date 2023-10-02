@@ -18,7 +18,8 @@ export const store = reactive({
 
     creditsTvs: [],
 
-    showErrorMessage: false,
+    showErrorMessageMovie: false,
+    showErrorMessageTv: false,
 
     fetchMovies(query) {
 
@@ -43,9 +44,9 @@ export const store = reactive({
 
 
                 if (this.results.length == 0) {
-                    this.showErrorMessage = true;
+                    this.showErrorMessageMovie = true;
                 } else {
-                    this.showErrorMessage = false;
+                    this.showErrorMessageMovie = false;
                 }
 
             })
@@ -79,9 +80,9 @@ export const store = reactive({
 
 
                 if (this.results.length == 0) {
-                    this.showErrorMessage = true;
+                    this.showErrorMessageTv = true;
                 } else {
-                    this.showErrorMessage = false;
+                    this.showErrorMessageTv = false;
                 }
 
             })
