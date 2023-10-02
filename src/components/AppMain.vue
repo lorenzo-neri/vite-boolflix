@@ -50,7 +50,7 @@ export default {
         </div>
         <!-- /.row -->
 
-        <div class="row" v-else-if="store.fetchMovies == true && store.fetchTvs == true && store.results.length == 0">
+        <div class="row" v-else-if="store.showErrorMessage == true && store.results.length == 0">
             <div class="col pt-5 mt-5 text-danger text-center">
                 La ricerca non è andata a buon fine
             </div>

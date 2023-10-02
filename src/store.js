@@ -43,7 +43,9 @@ export const store = reactive({
 
 
                 if (this.results.length == 0) {
-                    this.fetchMovies = true;
+                    this.showErrorMessage = true;
+                } else {
+                    this.showErrorMessage = false;
                 }
 
             })
@@ -77,7 +79,9 @@ export const store = reactive({
 
 
                 if (this.results.length == 0) {
-                    this.fetchTvs = true;
+                    this.showErrorMessage = true;
+                } else {
+                    this.showErrorMessage = false;
                 }
 
             })
